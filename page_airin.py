@@ -3,18 +3,22 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from page_data import cleaned_data
+from variable import cleaned_data
 
 # Membuat tab sebagai navbar
 tab1, tab2 = st.tabs(["Pertanyaan", "Hasil"])
 
 with tab1:
-    st.title("Pertanyaan 1")
+    st.markdown("""
+                <h2 style="color: #55AD9B;">Pertanyaan 3</h2>
+        """, unsafe_allow_html=True)
     st.write("Airin Ristiana - 10123194")
     st.write("Bagaimana peminjaman sepeda pada bulan tertentu dipengaruhi oleh musim? ")
 
 with tab2:
-    st.title("Hasil Analisis")
+    st.markdown("""
+                <h2 style="color: #55AD9B;">Hasil Analisis</h2>
+        """, unsafe_allow_html=True)
     month = {
         1: 'Januari',
         2: 'Februari',
@@ -53,10 +57,7 @@ with tab2:
         x_label="Bulan",
         y_label="Rata-Rata Peminjaman",
         color="#ffaa00")
-    # Membuat dua set kolom
-    row1 = st.columns(2)
-    row2 = st.columns(2)
-
+    
     # Informasi musim di Portugal
     musim = [
         "Musim Semi (Primavera): Maret hingga Mei", 
@@ -69,7 +70,12 @@ with tab2:
     container.title("Musim di Portugal")
 
     for m in musim:
-        tile = container.container(height=50)
+        tile = container.container(border=True)
         tile.write(m)
+
+    container2 = st.container(border=True)
+    container2.caption("Peminjaman sepeda cenderung dipengaruhi oleh musim. Terlihat puncak peminjaman terjadi pada bulan-bulan musim panas, seperti Juni, Juli dan Agustus, yang menandakan cuaca cerah mendorong aktivitas luar ruangan. Sebaliknya, jumlah peminjaman menurun drastis pada bulan Desember, yang kemungkinan besar karena kondisi musim dingin yang kurang mendukung aktivitas luar ruangan. Data ini menunjukkan perlunya strategi operasional yang menyesuaikan dengan pola musiman.")
+
+   
 
 
