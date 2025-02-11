@@ -39,15 +39,44 @@ with col1:
 
 # Menampilkan halaman sesuai pilihan
 if st.session_state.page == "Home":
-    st.title("🚴🏻‍♀️ Analisis Peminjaman Sepeda")
-    st.write("Anggota Kelompok:")
-    st.write("1. Mohamad Zaki Zakiran - 10123")
-    st.write("2. Muhammad Dimas Hergi - 10123")
-    st.write("3. Fathya Nurulhasanah - 10123190")
-    st.write("4. Airin Ristiana - 10123194")
-    st.write("5. Fariq Daffa Dinizar - 10123")
-    st.write("6. Zaqi Satriya Eka P. - 10123")
-        
+    st.title('Selamat Datang!')
+    st.write('Selamat datang di dashboard analisis peminjaman sepeda. Silakan pilih menu di sebelah kiri untuk melihat hasil analisis dari setiap anggota kelompok kami.')
+    vert_space = '<div style="padding: 20px 5px;"></div>'
+    st.markdown(vert_space, unsafe_allow_html=True)
+    st.markdown("""
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <iframe src="https://lottie.host/embed/8294b855-cdd2-4f41-878b-55c0fde10851/cMF4EedwJW.lottie" 
+                    width="400" height="400" style="border: none;">
+            </iframe>
+        </div>
+    """, unsafe_allow_html=True)
+    with st.container():
+        st.markdown("""
+            <div style="margin-top: 20px;padding: 16px; border-radius: 10px;text-align: center; 
+                        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);border: 1px solid #ddd;">
+                <h3 style="color: #55AD9B;">Anggota Kelompok</h3>
+                <div>
+                    <p>Mohamad Zaki Zakiran - 10123206</p>
+                </div>
+                <div>
+                    <p>Muhammad Dimas Hergi - 10123211</p>
+                </div>
+                <div>
+                    <p>Fathya Nurulhasanah - 10123190</p>
+                </div>
+                <div>
+                    <p>Airin Ristiana - 10123194</p>
+                </div>
+                <div>
+                    <p>Fariq Daffa Dinizar - 10123204</p>
+                </div>
+                <div>
+                    <p>Zaqi Satriya Eka P. - 10123205</p>
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
+
+   
 elif st.session_state.page == "Data":
     run_script("page_data.py")
 
