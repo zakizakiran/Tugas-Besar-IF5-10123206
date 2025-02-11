@@ -14,8 +14,44 @@ if "page" not in st.session_state:
 def switch_page(page_name):
     st.session_state.page = page_name
 
+st.markdown("""
+    <style>
+        /* Style untuk tombol di sidebar */
+        div.stButton > button:first-child {
+            background-color: #309ab3; /* Warna default */
+            color: white;
+            padding: 10px 24px;
+            border-radius: 10px;
+            font-size: 16px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Warna saat hover */
+        div.stButton > button:first-child:hover {
+            background-color: #41CEEF;
+            border-color: #41CEEF;  
+        }
+
+        /* Warna saat tombol aktif (clicked) */
+        div.stButton > button:first-child:active, div.stButton > button:focus {
+            background-color: #217a94 !important; /* Warna aktif */
+            color: white !important; /* Warna teks aktif */
+            border: 2px solid #ffffff !important; /* Warna border aktif */
+        }
+
+        /* Mengubah warna default sidebar */
+        [data-testid=stSidebar] {
+            background-color: #309ab3;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+
 # Sidebar dengan tombol navigasi
-st.sidebar.title("Main Menu")
+st.sidebar.markdown("""
+    <h1 style="color: white; text-align: center;">Main Menu</h1>
+""", unsafe_allow_html=True)
 col1 = st.sidebar.columns(1)[0]  # Kolom untuk tombol full-width
 
 with col1:
