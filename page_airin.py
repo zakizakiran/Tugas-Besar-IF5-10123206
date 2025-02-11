@@ -30,17 +30,29 @@ with tab2:
         12: 'Desember'
     }
 
+    month_order = [
+        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+    ]
+
     monthly_sn_data = cleaned_data.groupby(['mnth', 'season'])['cnt'].sum().reset_index()
 
-    fig, ax = plt.subplots()
-    ax.plot(monthly_sn_data['mnth'].map(month), monthly_sn_data['cnt'], color='skyblue')
-    ax.set_title("'PEMINJAMAN DATA PER BULAN BERDASARKAN MUSIM")
-    ax.set_xlabel("Bulan")
-    ax.set_ylabel("Rata-Rata Peminjaman")
-    ax.set_xticks(monthly_sn_data['mnth']) 
-    ax.set_xticklabels(monthly_sn_data['mnth'].map(month), rotation=70)
+    monthly_sn_data["mnth"] = monthly_sn_data["mnth"].map(month)
 
-    st.pyplot(fig)
+    # Ubah menjadi kategori dengan urutan yang benar
+    monthly_sn_data["mnth"] = pd.Categorical(monthly_sn_data["mnth"], categories=month_order, ordered=True)
+
+    # Urutkan dataframe berdasarkan urutan bulan
+    monthly_sn_data = monthly_sn_data.sort_values(by="mnth")
+    
+
+    st.line_chart(
+        monthly_sn_data, 
+        x="mnth", 
+        y="cnt", 
+        x_label="Bulan",
+        y_label="Rata-Rata Peminjaman",
+        color="#ffaa00")
     # Membuat dua set kolom
     row1 = st.columns(2)
     row2 = st.columns(2)
