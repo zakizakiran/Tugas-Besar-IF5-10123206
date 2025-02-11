@@ -1,4 +1,6 @@
 import streamlit as st
+from streamlit_lottie import st_lottie
+import requests
 
 # Panggil file lain
 def run_script(file_path):
@@ -39,6 +41,11 @@ st.markdown("""
             color: white !important; /* Warna teks aktif */
             border: 2px solid #ffffff !important; /* Warna border aktif */
         }
+        
+        .center-lottie {
+            display: flex;
+            justify-content: center;
+        }
 
         /* Mengubah warna default sidebar */
         [data-testid=stSidebar] {
@@ -72,20 +79,18 @@ with col1:
     if st.button("🌐 Pertanyaan 6", use_container_width=True):
         switch_page("Pertanyaan 6")
 
-
-# Menampilkan halaman sesuai pilihan
 if st.session_state.page == "Home":
     st.title('Selamat Datang!')
     st.write('Selamat datang di dashboard analisis peminjaman sepeda. Silakan pilih menu di sebelah kiri untuk melihat hasil analisis dari setiap anggota kelompok kami.')
     vert_space = '<div style="padding: 20px 5px;"></div>'
     st.markdown(vert_space, unsafe_allow_html=True)
-    st.markdown("""
-        <div style="display: flex; justify-content: center; align-items: center;">
-            <iframe src="https://lottie.host/embed/8294b855-cdd2-4f41-878b-55c0fde10851/cMF4EedwJW.lottie" 
-                    width="400" height="400" style="border: none;">
-            </iframe>
-        </div>
-    """, unsafe_allow_html=True)
+    lottie_url = "https://lottie.host/a95ea63d-ed53-4c4f-8c2a-0c66f909f7d8/jd6XmfKOh2.json"
+    lottie_json = requests.get(lottie_url).json()
+
+    col1, col2, col3 = st.columns([1, 2, 1])  # Centering with columns
+    with col2:  # Place in the middle column
+        st_lottie(lottie_json, speed=1, width=360, height=360)
+    
     with st.container():
         st.markdown("""
             <div style="margin-top: 20px;padding: 16px; border-radius: 10px;text-align: center; 
