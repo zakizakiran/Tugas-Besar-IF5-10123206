@@ -34,3 +34,14 @@ with tab2:
         y_label="Normalized Feeling Temperature(atemp)",
         color='season'
     )
+    container = st.container(border=True)
+    container.caption(""" 
+                    Musim Semi (Springer): Data menunjukkan variabilitas yang cukup besar, dengan titik-titik yang tersebar di berbagai rentang temperatur. Ini mencerminkan karakteristik musim semi yang sering kali tidak stabil, dengan hari-hari yang bisa terasa hangat atau dingin.
+
+                    Musim Panas (Summer): Titik-titik data cenderung berkumpul di area temperatur tinggi, menunjukkan bahwa baik temperatur aktual maupun yang dirasakan lebih tinggi. Namun, ada beberapa kasus di mana atemp terasa lebih ekstrem daripada temp, mungkin karena efek kelembaban yang tinggi.
+
+                    Musim Gugur (Fall): Pola data mirip dengan musim semi, tetapi dengan sedikit pergeseran ke arah temperatur yang lebih rendah. Ini menunjukkan transisi dari cuaca panas ke dingin, dengan variasi yang masih cukup signifikan.
+
+                    Musim Dingin (Winter): Data lebih terkonsentrasi di area temperatur rendah, dengan atemp yang sering kali lebih rendah daripada temp, menunjukkan bahwa udara dingin terasa lebih menusuk. Ini bisa disebabkan oleh faktor seperti angin dingin yang meningkatkan sensasi dingin.
+                      """)
+
