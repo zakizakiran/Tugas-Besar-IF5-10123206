@@ -15,5 +15,5 @@ with tab1:
 with tab2:
     st.title("Hasil Analisis")
     st.write("Informasi tentang aplikasi ini.")
-
+    st.write("halo.")
 
