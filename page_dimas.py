@@ -9,9 +9,11 @@ from variable import cleaned_data
 tab1, tab2 = st.tabs(["Pertanyaan", "Hasil"])
 
 with tab1:
-    st.title("Pertanyaan 1")
+    st.markdown("""
+                <h2 style="color: #55AD9B;">Pertanyaan 2</h2>
+        """, unsafe_allow_html=True)
     st.write("Muhamad Dimas Hergi P. - 10123211")
-    st.write("Faktor-faktor apa yang paling berkorelasi dengan jumlah peminjaman sepeda?")
+    st.write("Jam berapa penyewaan sepeda paling tinggi dan rendah?")
 
 with tab2:
     # Buat kategori waktu berdasarkan jam
@@ -29,7 +31,9 @@ with tab2:
     cleaned_data["time_category"] = cleaned_data["hr"].apply(categorize_hour)
 
     # Judul Aplikasi
-    st.title("Analisis Penyewaan Sepeda Berdasarkan Waktu")
+    st.markdown("""
+                <h2 style="color: #55AD9B;">Hasil Analisis</h2>
+        """, unsafe_allow_html=True)
 
     # Plot baru dengan kelompok waktu
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -40,5 +44,7 @@ with tab2:
 
     # Tampilkan Plot di Streamlit
     st.pyplot(fig)
+    st.write("""Grafik menunjukkan total penyewaan sepeda berdasarkan waktu dalam sehari. Penyewaan tertinggi terjadi pada malam hari (18:00 - 23:00), sementara dini hari (00:00 - 05:00) memiliki jumlah terendah. Pagi dan siang hari menunjukkan peningkatan, dengan siang hari lebih tinggi. Tren ini mungkin dipengaruhi oleh waktu luang dan kenyamanan cuaca.""")
 
+    
 

@@ -72,7 +72,7 @@ with col1:
         switch_page("Data")
     if st.button("ℹ️ Musim & Peminjaman", use_container_width=True):
         switch_page("Musim & Peminjaman")
-    if st.button("🔎 Waktu Peminjaman", use_container_width=True):
+    if st.button("⌛ Waktu Peminjaman", use_container_width=True):
         switch_page("Waktu Peminjaman")
     if st.button("💡 Geoanalysis", use_container_width=True):
         switch_page("Geoanalysis")
