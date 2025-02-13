@@ -40,21 +40,25 @@ with tab2:
     """)
     
     # Visualisasi hasil klasterisasi
-    fig, ax = plt.subplots(figsize=(10, 5))
-    sns.scatterplot(x=cleaned_data['hum'], y=cleaned_data['windspeed'], hue=cleaned_data['cluster_env'], palette='coolwarm', ax=ax)
-    ax.set_title('Klasterisasi Penggunaan Sepeda Berdasarkan Kelembaban dan Kecepatan Angin')
-    ax.set_xlabel('Kelembaban')
-    ax.set_ylabel('Kecepatan Angin')
-    st.pyplot(fig)
-
+    st.scatter_chart(
+    data=cleaned_data[['hum', 'windspeed', 'cluster_env']],
+    x='hum',
+    y='windspeed',
+    x_label='Kelembaban',
+    y_label='Kecepatan Angin',
+    color='cluster_env',  # Untuk pewarnaan berdasarkan klaster
+    size=20,  # Ukuran titik
+    use_container_width=True  # Menyesuaikan lebar dengan container
+    )
+    
     # Menampilkan jumlah data dalam setiap klaster
     cluster_counts_env = cleaned_data['cluster_env'].value_counts().reset_index()
     cluster_counts_env.columns = ['Cluster', 'Jumlah Data']
     st.subheader("Distribusi Data dalam Setiap Klaster")
     st.dataframe(cluster_counts_env, hide_index=True)
     st.container().caption("""
-    - **Cluster 0:** Pengguna dengan pola penggunaan tinggi, umumnya ditemukan saat kelembaban rendah dan angin sedang.
-    - **Cluster 1:** Pengguna dengan pola penggunaan sedang, sering terjadi pada kondisi kelembaban dan angin moderat.
+    - **Cluster 1:** Pengguna dengan pola penggunaan tinggi, sering terjadi pada kondisi kelembaban dan angin moderat.
+    - **Cluster 0:** Pengguna dengan pola penggunaan sedang, umumnya ditemukan saat kelembaban rendah dan angin sedang.
     - **Cluster 2:** Pengguna dengan pola penggunaan rendah, cenderung muncul saat kelembaban tinggi dan angin kencang.
     """)
 
