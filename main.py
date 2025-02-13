@@ -70,14 +70,14 @@ with col1:
         switch_page("Pertanyaan 1")
     if st.button("🔎 Pertanyaan 2", use_container_width=True):
         switch_page("Pertanyaan 2")
-    if st.button("💡 Pertanyaan 3", use_container_width=True):
-        switch_page("Pertanyaan 3")
+    if st.button("💡 Geoanalysis", use_container_width=True):
+        switch_page("Geoanalysis")
     if st.button("📈 Pertanyaan 4", use_container_width=True):
         switch_page("Pertanyaan 4")
     if st.button("🤔💭 Pertanyaan 5", use_container_width=True):
         switch_page("Pertanyaan 5")
-    if st.button("🌐 Pertanyaan 6", use_container_width=True):
-        switch_page("Pertanyaan 6")
+    if st.button("🌐 Clustering", use_container_width=True):
+        switch_page("Clustering")
 
 if st.session_state.page == "Home":
     st.title('Selamat Datang!')
@@ -127,7 +127,7 @@ elif st.session_state.page == "Pertanyaan 1":
 elif st.session_state.page == "Pertanyaan 2":
     run_script("page_dimas.py")
 
-elif st.session_state.page == "Pertanyaan 3":
+elif st.session_state.page == "Geoanalysis":
     run_script("page_airin.py")
 
 elif st.session_state.page == "Pertanyaan 4":
@@ -136,5 +136,5 @@ elif st.session_state.page == "Pertanyaan 4":
 elif st.session_state.page == "Pertanyaan 5":
     run_script("page_zaqi.py")
 
-elif st.session_state.page == "Pertanyaan 6":
+elif st.session_state.page == "Clustering":
     run_script("page_zakiran.py")
