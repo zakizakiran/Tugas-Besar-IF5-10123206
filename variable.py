@@ -6,7 +6,7 @@ data2 = pd.read_csv('dataset/hour.csv')
 
 # Pastikan kolom memiliki kesamaan sebelum menggabungkan
 common_columns = list(set(data1.columns) & set(data2.columns))
-combined = pd.concat([data1[common_columns], data2[common_columns]], ignore_index=True)
+combined = pd.concat([data1, data2], ignore_index=True, sort=False)
 
 # Cek missing values sebelum mengisi
 missing_values = combined.isnull().sum()
