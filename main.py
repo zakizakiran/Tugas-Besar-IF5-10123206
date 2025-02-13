@@ -8,6 +8,9 @@ def run_script(file_path):
         script = file.read()
     exec(script)
 
+# Set page title
+st.set_page_config(page_title="Dashboard Analisis Peminjaman Sepeda", page_icon="🚴‍♂️")
+
 # Inisialisasi session_state untuk halaman
 if "page" not in st.session_state:
     st.session_state.page = "Home"
@@ -16,6 +19,7 @@ if "page" not in st.session_state:
 def switch_page(page_name):
     st.session_state.page = page_name
 
+# Styling 
 st.markdown("""
     <style>
         /* Style untuk tombol di sidebar */
@@ -66,18 +70,18 @@ with col1:
         switch_page("Home")
     if st.button("🗂️ Data", use_container_width=True):
         switch_page("Data")
-    if st.button("ℹ️ Pertanyaan 1", use_container_width=True):
-        switch_page("Pertanyaan 1")
+    if st.button("ℹ️ Musim & Peminjaman", use_container_width=True):
+        switch_page("Musim & Peminjaman")
     if st.button("🔎 Pertanyaan 2", use_container_width=True):
         switch_page("Pertanyaan 2")
-    if st.button("💡 Pertanyaan 3", use_container_width=True):
-        switch_page("Pertanyaan 3")
-    if st.button("📈 Pertanyaan 4", use_container_width=True):
-        switch_page("Pertanyaan 4")
+    if st.button("💡 Geoanalysis", use_container_width=True):
+        switch_page("Geoanalysis")
+    if st.button("📈 Trend Bulanan", use_container_width=True):
+        switch_page("Trend Bulanan")
     if st.button("🤔💭 Pertanyaan 5", use_container_width=True):
         switch_page("Pertanyaan 5")
-    if st.button("🌐 Pertanyaan 6", use_container_width=True):
-        switch_page("Pertanyaan 6")
+    if st.button("🌐 Clustering", use_container_width=True):
+        switch_page("Clustering")
 
 if st.session_state.page == "Home":
     st.title('Selamat Datang!')
@@ -121,20 +125,20 @@ if st.session_state.page == "Home":
 elif st.session_state.page == "Data":
     run_script("page_data.py")
 
-elif st.session_state.page == "Pertanyaan 1":
+elif st.session_state.page == "Musim & Peminjaman":
     run_script("page_fariq.py")
 
 elif st.session_state.page == "Pertanyaan 2":
     run_script("page_dimas.py")
 
-elif st.session_state.page == "Pertanyaan 3":
+elif st.session_state.page == "Geoanalysis":
     run_script("page_airin.py")
 
-elif st.session_state.page == "Pertanyaan 4":
+elif st.session_state.page == "Trend Bulanan":
     run_script("page_fathya.py")
 
 elif st.session_state.page == "Pertanyaan 5":
     run_script("page_zaqi.py")
 
-elif st.session_state.page == "Pertanyaan 6":
+elif st.session_state.page == "Clustering":
     run_script("page_zakiran.py")

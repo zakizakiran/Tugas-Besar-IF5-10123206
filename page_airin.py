@@ -3,61 +3,64 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from page_data import cleaned_data
+import pydeck as pdk
+import geopandas as gpd
+from shapely.geometry import Point
+import random
+from variable import cleaned_data
 
 # Membuat tab sebagai navbar
 tab1, tab2 = st.tabs(["Pertanyaan", "Hasil"])
 
 with tab1:
-    st.title("Pertanyaan 1")
+    st.markdown("""
+                <h2 style="color: #55AD9B;">Pertanyaan 3</h2>
+        """, unsafe_allow_html=True)
     st.write("Airin Ristiana - 10123194")
-    st.write("Bagaimana peminjaman sepeda pada bulan tertentu dipengaruhi oleh musim? ")
+    st.write("Apakah angin kencang berhubungan dengan penurunan minat orang untuk menyewa sepeda?")
 
 with tab2:
-    st.title("Hasil Analisis")
-    month = {
-        1: 'Januari',
-        2: 'Februari',
-        3: 'Maret',
-        4: 'April',
-        5: 'Mei',
-        6: 'Juni',
-        7: 'Juli',
-        8: 'Agustus',
-        9: 'September',
-        10: 'Oktober',
-        11: 'November',
-        12: 'Desember'
-    }
+    st.markdown("""
+                <h2 style="color: #55AD9B;">Hasil Analisis</h2>
+        """, unsafe_allow_html=True)
+    
+    np.random.seed(42)
+    cleaned_data["latitude"] = np.random.uniform(36.96, 42.15, cleaned_data.shape[0])  # Koordinat Portugal
+    cleaned_data["longitude"] = np.random.uniform(-9.50, -6.19, cleaned_data.shape[0])
 
-    monthly_sn_data = cleaned_data.groupby(['mnth', 'season'])['cnt'].sum().reset_index()
+    # Visualisasi peta menggunakan Pydeck
+    layer = pdk.Layer(
+        "ScatterplotLayer",
+        data=cleaned_data,
+        get_position=["longitude", "latitude"],
+        get_radius="windspeed * 5000",  # Skala radius berdasarkan windspeed
+        get_color="[windspeed * 800, 100, 200, 150]",
+        pickable=True,
+        opacity=0.6,
+    )
 
-    fig, ax = plt.subplots()
-    ax.plot(monthly_sn_data['mnth'].map(month), monthly_sn_data['cnt'], color='skyblue')
-    ax.set_title("'PEMINJAMAN DATA PER BULAN BERDASARKAN MUSIM")
-    ax.set_xlabel("Bulan")
-    ax.set_ylabel("Rata-Rata Peminjaman")
-    ax.set_xticks(monthly_sn_data['mnth']) 
-    ax.set_xticklabels(monthly_sn_data['mnth'].map(month), rotation=70)
+    view_state = pdk.ViewState(
+        latitude=cleaned_data["latitude"].mean(),
+        longitude=cleaned_data["longitude"].mean(),
+        zoom=6,
+        pitch=30,
+    )
 
-    st.pyplot(fig)
-    # Membuat dua set kolom
-    row1 = st.columns(2)
-    row2 = st.columns(2)
+    st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state))
 
-    # Informasi musim di Portugal
-    musim = [
-        "Musim Semi (Primavera): Maret hingga Mei", 
-        "Musim Panas (Verão): Juni hingga Agustus",
-        "Musim Gugur (Outono): September hingga November", 
-        "Musim Dingin (Inverno): Desember hingga Februari"
-    ]
+    #deskripsi
+    container1 = st.container(border=True)
+    container1.caption("Titik-titik lebih padat terletak di area dengan angin kencang, hal ini bisa menunjukkan bahwa angin di daerah tersebut lebih sering tercatat atau memiliki kecepatan lebih tinggi. Terlihat pada data bahwa titik-titik terlihat padat di beberapa Kota.")
 
-    container = st.container(border=True)
-    container.title("Musim di Portugal")
+    st.scatter_chart(
+        cleaned_data,
+        x="windspeed",
+        y="cnt",
+        color="#55AD9B",
+    )
 
-    for m in musim:
-        tile = container.container(height=50)
-        tile.write(m)
+    #deskripsi
+    container2 = st.container(border=True)
+    container2.caption("Penyewa cenderung lebih banyak saat windspeed rendah yang artinya saat angin tidak terlalu kencang.")
 
 
