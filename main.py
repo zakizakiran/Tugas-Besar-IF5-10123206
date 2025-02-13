@@ -72,8 +72,8 @@ with col1:
         switch_page("Data")
     if st.button("ℹ️ Musim & Peminjaman", use_container_width=True):
         switch_page("Musim & Peminjaman")
-    if st.button("🔎 Pertanyaan 2", use_container_width=True):
-        switch_page("Pertanyaan 2")
+    if st.button("🔎 Waktu Peminjaman", use_container_width=True):
+        switch_page("Waktu Peminjaman")
     if st.button("💡 Geoanalysis", use_container_width=True):
         switch_page("Geoanalysis")
     if st.button("📈 Trend Bulanan", use_container_width=True):
@@ -128,7 +128,7 @@ elif st.session_state.page == "Data":
 elif st.session_state.page == "Musim & Peminjaman":
     run_script("page_fariq.py")
 
-elif st.session_state.page == "Pertanyaan 2":
+elif st.session_state.page == "Waktu Peminjaman":
     run_script("page_dimas.py")
 
 elif st.session_state.page == "Geoanalysis":
