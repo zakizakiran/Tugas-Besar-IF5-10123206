@@ -72,14 +72,14 @@ with col1:
         switch_page("Data")
     if st.button("ℹ️ Musim & Peminjaman", use_container_width=True):
         switch_page("Musim & Peminjaman")
-    if st.button("🔎 Pertanyaan 2", use_container_width=True):
-        switch_page("Pertanyaan 2")
+    if st.button("⌛ Waktu Peminjaman", use_container_width=True):
+        switch_page("Waktu Peminjaman")
     if st.button("💡 Geoanalysis", use_container_width=True):
         switch_page("Geoanalysis")
     if st.button("📈 Trend Bulanan", use_container_width=True):
         switch_page("Trend Bulanan")
-    if st.button("🤔💭 Pertanyaan 5", use_container_width=True):
-        switch_page("Pertanyaan 5")
+    if st.button("🤔💭 Pola Peminjaman Sepeda", use_container_width=True):
+        switch_page("Pola Peminjaman Sepeda")
     if st.button("🌐 Clustering", use_container_width=True):
         switch_page("Clustering")
 
@@ -128,7 +128,7 @@ elif st.session_state.page == "Data":
 elif st.session_state.page == "Musim & Peminjaman":
     run_script("page_fariq.py")
 
-elif st.session_state.page == "Pertanyaan 2":
+elif st.session_state.page == "Waktu Peminjaman":
     run_script("page_dimas.py")
 
 elif st.session_state.page == "Geoanalysis":
@@ -137,7 +137,7 @@ elif st.session_state.page == "Geoanalysis":
 elif st.session_state.page == "Trend Bulanan":
     run_script("page_fathya.py")
 
-elif st.session_state.page == "Pertanyaan 5":
+elif st.session_state.page == "Pola Peminjaman Sepeda":
     run_script("page_zaqi.py")
 
 elif st.session_state.page == "Clustering":
