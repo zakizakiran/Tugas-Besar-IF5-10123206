@@ -53,7 +53,45 @@ with tab2:
     cluster_counts_env = cleaned_data['cluster_env'].value_counts().reset_index()
     cluster_counts_env.columns = ['Cluster', 'Jumlah Data']
     st.subheader("Distribusi Data dalam Setiap Klaster")
-    st.dataframe(cluster_counts_env, hide_index=True)
+    
+    # Ambil jumlah data untuk masing-masing klaster
+    cluster_0_count = cluster_counts_env[cluster_counts_env['Cluster'] == 0]['Jumlah Data'].values[0]
+    cluster_1_count = cluster_counts_env[cluster_counts_env['Cluster'] == 1]['Jumlah Data'].values[0]
+    cluster_2_count = cluster_counts_env[cluster_counts_env['Cluster'] == 2]['Jumlah Data'].values[0]
+    
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col1:
+        with st.container():
+            st.markdown(f"""
+                <div style="text-align: center;margin: 20px;padding: 16px; border-radius: 10px;box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);border: 1px solid #ddd;">
+                    <h3 style="color: #55AD9B;">Cluster 0</h3>
+                    <div>
+                        <p>{cluster_0_count:,}</p>
+                        <p style="color: grey">Jumlah Data</p>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+    with col2:
+         st.markdown(f"""
+                <div style="text-align: center;margin: 20px;padding: 16px; border-radius: 10px;box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);border: 1px solid #ddd;">
+                    <h3 style="color: #55AD9B;">Cluster 1</h3>
+                    <div>
+                        <p>{cluster_1_count:,}</p>
+                        <p style="color: grey">Jumlah Data</p>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+    with col3:
+        st.markdown(f"""
+                <div style="text-align: center;margin: 20px;padding: 16px; border-radius: 10px;box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);border: 1px solid #ddd;">
+                    <h3 style="color: #55AD9B;">Cluster 2</h3>
+                    <div>
+                        <p>{cluster_2_count:,}</p>
+                        <p style="color: grey">Jumlah Data</p>
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+    
     st.container().caption("""
     - **Cluster 0:** Pengguna dengan pola penggunaan tinggi, sering terjadi saat suhu hangat dan kelembaban sedang.
     - **Cluster 1:** Pengguna dengan pola penggunaan sedang, ditemukan saat suhu moderat dengan kelembaban bervariasi.
