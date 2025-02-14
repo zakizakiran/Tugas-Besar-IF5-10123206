@@ -11,7 +11,7 @@ with tab1:
                 <h2 style="color: #55AD9B;">Pertanyaan 6</h2>
         """, unsafe_allow_html=True)
     st.write("Mohamad Zaki Zakiran - 10123206")
-    st.write("Analisis klasterisasi ini bertujuan untuk mengelompokkan pengguna sepeda berdasarkan kesamaan pola penggunaan mereka. Dengan metode K-Means, pengguna dikelompokkan ke dalam tiga klaster berdasarkan kelembaban, suhu, dan jumlah penggunaan sepeda.")
+    st.write("Bagaimana pola penggunaan sepeda dikelompokkan berdasarkan faktor suhu dan kelembaban?")
 
 with tab2:
     st.markdown("""
@@ -30,7 +30,7 @@ with tab2:
     cleaned_data['cluster_env'] = kmeans_env.fit_predict(day_scaled_env)
 
     # Deskripsi klaster
-    st.write("Analisis ini mengelompokkan pengguna sepeda berdasarkan kelembaban dan suhu. Berikut adalah karakteristik tiap klaster:")
+    st.write("Analisis klasterisasi ini bertujuan untuk mengelompokkan pengguna sepeda berdasarkan kesamaan pola penggunaan mereka. Dengan metode K-Means, pengguna dikelompokkan ke dalam tiga klaster berdasarkan kelembaban, suhu, dan jumlah penggunaan sepeda. Berikut adalah karakteristik tiap klaster:")
     st.write("""
     - **Cluster 0:** Suhu hangat dan kelembaban sedang.
     - **Cluster 1:** Suhu moderat dengan kelembaban bervariasi.
