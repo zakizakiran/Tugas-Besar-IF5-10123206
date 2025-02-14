@@ -32,9 +32,9 @@ with tab2:
     # Deskripsi klaster
     st.write("Analisis ini mengelompokkan pengguna sepeda berdasarkan kelembaban dan suhu. Berikut adalah karakteristik tiap klaster:")
     st.write("""
-    - **Cluster 0:** Pengguna dengan pola penggunaan tinggi, sering terjadi saat suhu hangat dan kelembaban sedang.
-    - **Cluster 1:** Pengguna dengan pola penggunaan sedang, ditemukan saat suhu moderat dengan kelembaban bervariasi.
-    - **Cluster 2:** Pengguna dengan pola penggunaan rendah, cenderung muncul saat suhu rendah dan kelembaban tinggi.
+    - **Cluster 0:** Suhu hangat dan kelembaban sedang.
+    - **Cluster 1:** Suhu moderat dengan kelembaban bervariasi.
+    - **Cluster 2:** Suhu rendah dan kelembaban tinggi.
     """)
     
     # Visualisasi hasil klasterisasi
