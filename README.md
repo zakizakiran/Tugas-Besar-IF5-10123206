@@ -24,7 +24,7 @@ IF5-10123206
 - seaborn
 - scikit learn
 
-## Cara Menjalankan
+## Cara Menjalankan di Lokal
 
 Clone Project
 
@@ -43,6 +43,9 @@ Run streamlit
 ```bash
   streamlit run main.py
 ```
+
+##  Link Demo
+Untuk melihat [klik disini](https://dbsepeda.streamlit.app/)
 
 ## Tampilan Dashboard
 
