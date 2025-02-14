@@ -46,7 +46,9 @@ Run streamlit
 
 ## Tampilan Dashboard
 
-![App Screenshot](https://github.com/user-attachments/assets/7b1c1d18-7949-4ba4-9862-bcde0c3c5cdf)
-![App Screenshot](https://github.com/user-attachments/assets/a002230f-7307-4acc-95c7-f7d820e7ccd0)
+![App Screenshot](https://github.com/user-attachments/assets/772be080-3c8d-487c-bba4-904508e02432)
+![App Screenshot](https://github.com/user-attachments/assets/d7bdfe40-05c4-4060-b413-e1faf8c51d43)
+![App Screenshot](https://github.com/user-attachments/assets/c65c6d16-8012-4c41-b39d-95bd4cc0f3cf)
+![App Scrennshot](https://github.com/user-attachments/assets/678779f8-c3b1-4256-ad3c-5e6f6ea017af)
 
 
